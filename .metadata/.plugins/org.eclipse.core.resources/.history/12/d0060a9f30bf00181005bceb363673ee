@@ -118,9 +118,11 @@ public class Html {
 		 
 		int begin = (html.indexOf(balise))+37;
 		int end = html.indexOf(" ", begin);
-
+		System.out.println("begin :"+begin);
+		System.out.println("end :"+end);
 		if(end == begin){
-			return "Pas de prix";
+			String rep = "Pas de prix";
+			return rep;
 		}
 		else{
 			higherPrice = html.substring(begin, end);	

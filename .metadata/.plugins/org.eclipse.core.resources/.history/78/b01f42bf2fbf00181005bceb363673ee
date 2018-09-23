@@ -118,14 +118,9 @@ public class Html {
 		 
 		int begin = (html.indexOf(balise))+37;
 		int end = html.indexOf(" ", begin);
-
-		if(end == begin){
-			return "Pas de prix";
-		}
-		else{
-			higherPrice = html.substring(begin, end);	
-			return higherPrice;
-		}
+		higherPrice = html.substring(begin, end);
+		
+		return higherPrice;
 	
 	}
 	
