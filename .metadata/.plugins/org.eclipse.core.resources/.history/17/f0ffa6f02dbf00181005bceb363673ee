@@ -73,7 +73,7 @@ public class Html {
 				 
 				    String uri = values.getJSONObject(i).getString("uri");
 				    
-				    System.out.println("Disque "+i);
+				    
 				    System.out.println(values.getJSONObject(i).getString("title"));
 				    System.out.println(findHigherPrice(getHtml(startUrlItem+uri)));
 				    System.out.println("-------------------------------------");

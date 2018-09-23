@@ -59,10 +59,7 @@ public class Html {
 			 for (int i = 0; i < values.length(); i++) {
 				
 				 j = j+1;
-				 System.out.println("Disque "+j);
-
-				 for(int k=j; k == 4; k++){
-					 System.out.println("J'attend 1 min");
+				 for(int k=j; k == 5; k++){
 					 try {
 							Thread.sleep(1 * 60 * 1000);
 						} catch (InterruptedException e) {
@@ -73,10 +70,10 @@ public class Html {
 				 
 				    String uri = values.getJSONObject(i).getString("uri");
 				    
-				    System.out.println("Disque "+i);
+				    System.out.println(values.getJSONObject(i).getString("numero "+i));
 				    System.out.println(values.getJSONObject(i).getString("title"));
 				    System.out.println(findHigherPrice(getHtml(startUrlItem+uri)));
-				    System.out.println("-------------------------------------");
+				    System.out.println("-----------------------------");
 				    
 			 }
 		} catch (JSONException e) {

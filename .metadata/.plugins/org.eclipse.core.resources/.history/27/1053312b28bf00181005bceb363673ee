@@ -55,29 +55,12 @@ public class Html {
 		JSONArray values = null;
 		try {
 			 values = JSON.getJSONArray("results");
-			 int j = 0;
+			 
 			 for (int i = 0; i < values.length(); i++) {
-				
-				 j = j+1;
-				 System.out.println("Disque "+j);
-
-				 for(int k=j; k == 4; k++){
-					 System.out.println("J'attend 1 min");
-					 try {
-							Thread.sleep(1 * 60 * 1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					 j = 0;
-				 }
-				 
-				    String uri = values.getJSONObject(i).getString("uri");
 				    
-				    System.out.println("Disque "+i);
+				    String uri = values.getJSONObject(i).getString("uri");
 				    System.out.println(values.getJSONObject(i).getString("title"));
 				    System.out.println(findHigherPrice(getHtml(startUrlItem+uri)));
-				    System.out.println("-------------------------------------");
-				    
 			 }
 		} catch (JSONException e) {
 			e.printStackTrace();
