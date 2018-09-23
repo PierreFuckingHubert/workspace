@@ -1,0 +1,56 @@
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+
+public class Html {
+	
+	String codeSource;
+	
+	public Html(){
+		codeSource = "codeSource";
+	}
+	
+	
+	public static String getHtml() { 
+		String toreturn = null;
+		  try { 
+		    URL url = new URL("https://www.discogs.com/Hycentto-Junior-Mama-Groove/release/8540243"); 
+		   URLConnection uc = url.openConnection(); 
+		   InputStream in = uc.getInputStream(); 
+		   int c = in.read(); 
+		   StringBuilder build = new StringBuilder(); 
+		   while (c != -1) { 
+		    build.append((char) c); 
+		    c = in.read(); 
+		   } 
+		   toreturn = build.toString(); 
+		   
+		  } catch (MalformedURLException e) { 
+		  
+		   e.printStackTrace(); 
+		  } catch (IOException e) { 
+		  
+		   e.printStackTrace(); 
+		  }
+		   return toreturn;
+		 }
+	
+	public static String findHigherPrice(String html){
+		String higherPrice = null;
+		
+		String balise = "<h4>Highest:</h4>"; 
+		 
+		int begin = (html.indexOf(balise))+17;
+		
+		System.out.println("Position : "+ html.indexOf(balise));
+		higherPrice = html.substring(begin, begin+25);
+		
+		return higherPrice;
+	
+	}
+	
+	
+}

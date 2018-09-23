@@ -1,0 +1,7 @@
+
+public class Html {
+	
+	public static void html() {
+		System.out.println("Hello World");
+	}
+}

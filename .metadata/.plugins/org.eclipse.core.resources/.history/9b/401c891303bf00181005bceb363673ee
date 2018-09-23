@@ -1,0 +1,43 @@
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+
+public class Html {
+	
+	String codeSource;
+	
+	public Html(){
+		codeSource = "codeSource";
+		System.out.println("Html discogs : "+ codeSource);  
+	}
+	
+	
+	public static String getIpFrom() { 
+		String toreturn = null;
+		  try { 
+		    URL url = new URL("https://www.discogs.com/Hycentto-Junior-Mama-Groove/release/8540243"); 
+		   URLConnection uc = url.openConnection(); 
+		   InputStream in = uc.getInputStream(); 
+		   int c = in.read(); 
+		   StringBuilder build = new StringBuilder(); 
+		   while (c != -1) { 
+		    build.append((char) c); 
+		    c = in.read(); 
+		   } 
+		   toreturn = build.toString(); 
+		   
+		  } catch (MalformedURLException e) { 
+		  
+		   e.printStackTrace(); 
+		  } catch (IOException e) { 
+		  
+		   e.printStackTrace(); 
+		  }
+		   return toreturn;
+		 }
+	
+	
+}

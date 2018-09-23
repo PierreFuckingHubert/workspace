@@ -1,0 +1,7 @@
+
+public class getHtml {
+	
+	public static void html() {
+		System.out.println("Hello World");
+	}
+}

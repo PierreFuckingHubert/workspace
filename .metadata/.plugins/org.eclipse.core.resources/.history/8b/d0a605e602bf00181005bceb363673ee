@@ -1,0 +1,11 @@
+
+public class Html {
+	
+	String codeSource;
+	
+	public Html(){
+		codeSource = "codeSource";
+		System.out.println("Html discogs : "+ codeSource);  
+	}
+	
+}
