@@ -102,7 +102,12 @@ public class Html {
 		    HttpURLConnection uc = (HttpURLConnection)url.openConnection();
 		    
 
+
+
+		//   URLConnection uc = url.openConnection(); 
 		   uc.setDoInput(true);
+		   uc.setRequestMethod("GET");
+		   uc.setRequestProperty("Content-type", "text/html");
 		   uc.setRequestProperty("User-agent", "your bot 0.1");
 		   InputStream in = uc.getInputStream(); 
 		   int c = in.read(); 

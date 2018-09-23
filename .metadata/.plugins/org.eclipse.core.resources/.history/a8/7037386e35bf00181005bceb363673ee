@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -14,10 +13,10 @@ public class Html {
 	static String token = "vQxxFzrnTDhksNimCTcZGftwHqejMcrUungWtECD";
 	static String year = "1991";
 	static String country = "nigeria";
-	static String genre = "boogie";
+	static String genre = "hip-hop";
 	static String format = "vinyl";
 	static String startUrl = "https://api.discogs.com/database/search?";
-	static String req = startUrl+"country="+country+"&year="+year+"&format="+format+"&style="+genre+"&token="+token;
+	static String req = startUrl+"country="+country+"&year="+year+"&format="+format+"&genre="+genre+"&token="+token;
 	static String startUrlItem = "https://www.discogs.com";
 	
 	public Html(){
@@ -60,7 +59,7 @@ public class Html {
 			 int j = 0;
 			 for (int i = 0; i < values.length(); i++) {
 				
-				// j = j+1;
+				 //j = j+1;
 
 				 for(int k=j; k == 4; k++){
 					 System.out.println("J'attend 1 min");
@@ -76,7 +75,7 @@ public class Html {
 				    
 				    System.out.println("Disque "+(i+1));
 				    System.out.println(values.getJSONObject(i).getString("title"));
-				    System.out.println(findHigherPrice(getHtml(startUrlItem+uri)));
+				    //System.out.println(findHigherPrice(getHtml(startUrlItem+uri)));
 				    System.out.println("-------------------------------------");
 				    
 			 }
@@ -91,19 +90,10 @@ public class Html {
 	
 	public static String getHtml(String uri) { 
 
-	
-		
-		
-		
 		String toreturn = null;
 		  try { 
 		    URL url = new URL(uri); 
-		    
-		    HttpURLConnection uc = (HttpURLConnection)url.openConnection();
-		    
-
-		   uc.setDoInput(true);
-		   uc.setRequestProperty("User-agent", "your bot 0.1");
+		   URLConnection uc = url.openConnection(); 
 		   InputStream in = uc.getInputStream(); 
 		   int c = in.read(); 
 		   StringBuilder build = new StringBuilder(); 

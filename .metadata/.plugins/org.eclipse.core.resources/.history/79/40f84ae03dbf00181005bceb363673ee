@@ -60,7 +60,7 @@ public class Html {
 			 int j = 0;
 			 for (int i = 0; i < values.length(); i++) {
 				
-				// j = j+1;
+				 j = j+1;
 
 				 for(int k=j; k == 4; k++){
 					 System.out.println("J'attend 1 min");
@@ -99,11 +99,13 @@ public class Html {
 		  try { 
 		    URL url = new URL(uri); 
 		    
-		    HttpURLConnection uc = (HttpURLConnection)url.openConnection();
+		    HttpURLConnection myURLConnection = (HttpURLConnection)url.openConnection();
 		    
-
+		//   URLConnection uc = url.openConnection(); 
 		   uc.setDoInput(true);
-		   uc.setRequestProperty("User-agent", "your bot 0.1");
+		   uc.setRequestMethod("GET");
+		   uc.setRequestProperty("Content-type", "text/html");
+		   uc.setRequestProperty("PARAM_HEADER1", "toto1");
 		   InputStream in = uc.getInputStream(); 
 		   int c = in.read(); 
 		   StringBuilder build = new StringBuilder(); 
