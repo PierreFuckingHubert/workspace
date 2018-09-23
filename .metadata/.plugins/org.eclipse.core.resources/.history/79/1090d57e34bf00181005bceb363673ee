@@ -24,8 +24,7 @@ public class Html {
 	
 	public static void getJSON(){
 		String stringJ = null;
-	    System.out.println(req);
-
+		
 		try { 
 		    URL url = new URL(req); 
 		   URLConnection uc = url.openConnection(); 
@@ -82,8 +81,7 @@ public class Html {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-	    System.out.println("FIN");
-		
+						
 		
 	}
 	

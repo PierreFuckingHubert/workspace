@@ -24,8 +24,7 @@ public class Html {
 	
 	public static void getJSON(){
 		String stringJ = null;
-	    System.out.println(req);
-
+		
 		try { 
 		    URL url = new URL(req); 
 		   URLConnection uc = url.openConnection(); 
@@ -64,7 +63,7 @@ public class Html {
 				 for(int k=j; k == 4; k++){
 					 System.out.println("J'attend 1 min");
 					 try {
-							Thread.sleep(1 * 60 * 1100);
+							Thread.sleep(1 * 60 * 1000);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -82,8 +81,7 @@ public class Html {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-	    System.out.println("FIN");
-		
+						
 		
 	}
 	
