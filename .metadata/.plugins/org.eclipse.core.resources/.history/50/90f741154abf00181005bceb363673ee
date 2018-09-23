@@ -4,7 +4,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Base64;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,9 +62,9 @@ public class Html {
 			 int j = 0;
 			 for (int i = 0; i < values.length(); i++) {
 				
-				 j = j+1;
+				// j = j+1;
 
-				 for(int k=j; k == 50; k++){
+				 for(int k=j; k == 4; k++){
 					 System.out.println("J'attend 1 min");
 					 try {
 							Thread.sleep(1 * 60 * 1100);
@@ -98,10 +97,10 @@ public class Html {
 		  try { 
 		    URL url = new URL(uri); 
 		    
-		    HttpURLConnection uc = (HttpURLConnection)url.openConnection();		
-
+		    HttpURLConnection uc = (HttpURLConnection)url.openConnection();
+		    
 		   String string = "your bot 0.1"+(q+1);
-		   
+		    
 		   uc.setRequestProperty("User-agent", string);
 		   InputStream in = uc.getInputStream(); 
 		   int c = in.read(); 

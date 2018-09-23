@@ -4,7 +4,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Base64;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,9 +16,8 @@ public class Html {
 	static String country = "nigeria";
 	static String genre = "boogie";
 	static String format = "vinyl";
-	static String perPage = "1000";
 	static String startUrl = "https://api.discogs.com/database/search?";
-	static String req = startUrl+"country="+country+"&decade="+year+"&format="+format+"&style="+genre+"&token="+token+"&per_page="+perPage;
+	static String req = startUrl+"country="+country+"&decade="+year+"&format="+format+"&style="+genre+"&token="+token;
 	static String startUrlItem = "https://www.discogs.com";
 	static int q;
 	
@@ -63,9 +61,9 @@ public class Html {
 			 int j = 0;
 			 for (int i = 0; i < values.length(); i++) {
 				
-				 j = j+1;
+				// j = j+1;
 
-				 for(int k=j; k == 50; k++){
+				 for(int k=j; k == 4; k++){
 					 System.out.println("J'attend 1 min");
 					 try {
 							Thread.sleep(1 * 60 * 1100);
@@ -98,11 +96,13 @@ public class Html {
 		  try { 
 		    URL url = new URL(uri); 
 		    
-		    HttpURLConnection uc = (HttpURLConnection)url.openConnection();		
-
-		   String string = "your bot 0.1"+(q+1);
-		   
-		   uc.setRequestProperty("User-agent", string);
+		    HttpURLConnection uc = (HttpURLConnection)url.openConnection();
+		    
+		   q = q +1;
+		   String string = "your bot 0.1";
+		   String st = string+q;
+		    
+		   uc.setRequestProperty("User-agent", st);
 		   InputStream in = uc.getInputStream(); 
 		   int c = in.read(); 
 		   StringBuilder build = new StringBuilder(); 

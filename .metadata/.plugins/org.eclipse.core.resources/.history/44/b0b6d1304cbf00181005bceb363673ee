@@ -68,7 +68,7 @@ public class Html {
 				 for(int k=j; k == 50; k++){
 					 System.out.println("J'attend 1 min");
 					 try {
-							Thread.sleep(1 * 60 * 1100);
+							Thread.sleep(1 * 60 * 100);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -103,6 +103,7 @@ public class Html {
 		   String string = "your bot 0.1"+(q+1);
 		   
 		   uc.setRequestProperty("User-agent", string);
+		   uc.setRequestMethod("GET");
 		   InputStream in = uc.getInputStream(); 
 		   int c = in.read(); 
 		   StringBuilder build = new StringBuilder(); 
