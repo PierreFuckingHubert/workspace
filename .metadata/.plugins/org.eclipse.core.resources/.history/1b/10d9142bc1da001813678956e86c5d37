@@ -1,0 +1,57 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String token = "vQxxFzrnTDhksNimCTcZGftwHqejMcrUungWtECD";
+		String startUrlItem = "https://www.discogs.com";
+		String startUrl = "https://api.discogs.com/database/search?";
+		String format = "vinyl";
+		String perPage = "1000";
+		String year = "2000";
+		String country = "nigeria";
+		String genre = "boogie";
+		String req = startUrl+"country="+country+"&decade="+year+"&format="+format+"&style="+genre+"&token="+token+"&per_page="+perPage;
+
+
+		
+		
+		Connection conn = bdd.connection(); 
+  
+		// Remplis la BDD en fonction d'une url
+		//Discogs.getJSON(country, genre, conn, req);
+		
+		
+			Statement state;
+			
+		
+			
+			
+			try {
+				state = conn.createStatement();
+					ResultSet rs = state.executeQuery("SELECT title from records where id ="+ i +"");
+					String search = rs.getString(0);
+					System.out.println(search);	
+					search = search.replaceAll("-", "&");
+					Ebay.getJSON(search);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
+
+		
+		
+		//Ebay.getJSON();
+		//bdd.connection();
+		//Discogs.getJSON();
+		//System.out.println(Html.findHigherPrice(Html.getHtml("https://www.discogs.com/City-Holy-Gang-Horror/release/8118265")));
+		//System.out.println(Html.findHigherPrice(Html.getHtml()));	
+	}
+
+}

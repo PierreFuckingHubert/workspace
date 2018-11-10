@@ -1,0 +1,19 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String a = "4.0";
+		Double b = Double.parseDouble(a); 
+		System.out.println(b);
+
+		
+		//Discogs.getJSON();
+		//Ebay.getJSON();
+		//bdd.connection();
+		//Discogs.getJSON();
+		//System.out.println(Html.findHigherPrice(Html.getHtml("https://www.discogs.com/City-Holy-Gang-Horror/release/8118265")));
+		//System.out.println(Html.findHigherPrice(Html.getHtml()));	
+	}
+
+}

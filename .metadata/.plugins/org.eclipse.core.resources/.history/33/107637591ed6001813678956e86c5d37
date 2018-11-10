@@ -1,0 +1,8 @@
+
+public class record {
+
+	int lowerPrice;
+	int medianPrice;
+	int higherPrice;
+	
+}

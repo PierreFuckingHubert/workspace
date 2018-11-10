@@ -1,0 +1,72 @@
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+public class Ebay {
+
+	static String ebayUrl = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=PierreHu-Discogs-PRD-d5f82ec3d-72388a54&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=";
+	static String album = "mama&groove";
+	static String artist = "hycentto";
+	static String finalRequest = ebayUrl+artist+"%20"+album;
+	
+	public static void getJSON(){
+		String stringJ = null;
+	    System.out.println(finalRequest);
+
+		try { 
+		    URL url = new URL(finalRequest); 
+		   URLConnection uc = url.openConnection(); 
+		   InputStream in = uc.getInputStream(); 
+		   int c = in.read(); 
+		   StringBuilder build = new StringBuilder(); 
+		   while (c != -1) { 
+		    build.append((char) c); 
+		    c = in.read(); 
+		   } 
+		   stringJ = build.toString(); 
+		   
+		  } catch (MalformedURLException e) { 
+		  
+		   e.printStackTrace(); 
+		  } catch (IOException e) { 
+		  
+		}
+				
+		
+		JSONObject JSON = new JSONObject();
+		try {
+			JSON = new JSONObject(stringJ);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		} 
+	//	System.out.println(JSON);
+		JSONArray values = null;
+		try {
+			 			 
+			 values = JSON.getJSONArray("findItemsByKeywordsResponse").getJSONObject(0).getJSONArray("searchResult").getJSONObject(0).getJSONArray("item");
+			 
+			 for (int i = 0; i < values.length(); i++) {
+							 
+				    //String uri = value2.getJSONObject(i).getString("itemId");
+				 	System.out.println("==================================");
+				    System.out.println(values.getJSONObject(i).getJSONArray("viewItemURL").get(0));
+				    System.out.println(values.getJSONObject(i).getJSONArray("sellingStatus").getJSONObject(0).getJSONArray("currentPrice").getJSONObject(0).get("__value__"));
+				    System.out.println(values.getJSONObject(i).getJSONArray("sellingStatus").getJSONObject(0).getJSONArray("currentPrice").getJSONObject(0).get("@currencyId"));		    
+				    
+			 }
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	    System.out.println("FIN");
+		
+		
+	}
+	
+}

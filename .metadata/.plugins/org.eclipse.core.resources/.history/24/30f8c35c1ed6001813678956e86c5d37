@@ -1,0 +1,12 @@
+
+public class record {
+
+	String artist;
+	String album;
+	int lowerPrice;
+	int medianPrice;
+	int higherPrice;
+	
+	
+	
+}

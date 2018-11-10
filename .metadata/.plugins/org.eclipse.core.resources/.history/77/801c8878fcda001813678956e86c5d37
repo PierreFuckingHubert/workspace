@@ -1,0 +1,62 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String token = "vQxxFzrnTDhksNimCTcZGftwHqejMcrUungWtECD";
+		String startUrlItem = "https://www.discogs.com";
+		String startUrl = "https://api.discogs.com/database/search?";
+		String format = "vinyl";
+		String perPage = "1000";
+		String year = "2000";
+		String country = "nigeria";
+		String genre = "boogie";
+		String req = startUrl+"country="+country+"&decade="+year+"&format="+format+"&style="+genre+"&token="+token+"&per_page="+perPage;
+
+		String ebayUrl = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=PierreHu-Discogs-PRD-d5f82ec3d-72388a54&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=";
+		//String filter = "&itemFilter.paramValue=USD";
+		String filter="";
+		
+		//String filter="&itemFilter.name=Category&itemFilter.value=17690985";
+		Connection conn = bdd.connection(); 
+  
+		// Remplis la BDD en fonction d'une url
+		//Discogs.getJSON(country, genre, conn, req);
+		
+		
+			Statement state;
+					
+			try {
+				state = conn.createStatement();
+				for(int i = 0; i !=300; i++){				
+					ResultSet rs = state.executeQuery("SELECT title from records where id ="+ i +"");
+					while (rs.next()) {
+						  String search = rs.getString("title");
+						  search = search.replaceAll("-", "%20");
+						  System.out.println(search);
+						  String finalRequest = ebayUrl+search+filter;
+						  Ebay.getJSON(finalRequest);
+					}
+					
+					
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
+
+		
+		
+		//Ebay.getJSON();
+		//bdd.connection();
+		//Discogs.getJSON();
+		//System.out.println(Html.findHigherPrice(Html.getHtml("https://www.discogs.com/City-Holy-Gang-Horror/release/8118265")));
+		//System.out.println(Html.findHigherPrice(Html.getHtml()));	
+	}
+
+}

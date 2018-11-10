@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;record&apos; to &apos;Record&apos;&#x0A;- Original project: &apos;Discogs&apos;&#x0A;- Original element: &apos;record&apos;&#x0A;- Renamed element: &apos;Record&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;record&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{record.java[record" matchStrategy="1" name="Record" qualified="false" references="true" similarDeclarations="false" stamp="1540238103408" textual="false" version="1.0"/>
+</session>

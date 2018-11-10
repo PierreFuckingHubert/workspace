@@ -1,0 +1,40 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+
+
+public class bdd {
+
+	// INSERT INTO record (name, price) VALUES ('hycentto', '20')
+	
+	  public static Connection connection() {  
+		  Connection conn = null;
+	    try {
+	      Class.forName("org.postgresql.Driver");
+	      System.out.println("Driver O.K.");
+
+	      String url = "jdbc:postgresql://localhost:5432/Discogs";
+	      String user = "postgres";
+	      String passwd = "supercool";
+
+	      conn = DriverManager.getConnection(url, user, passwd);
+	      System.out.println("Connexion effective !");         
+	         	     
+	      Statement state;
+	  String name = "dqsdsd";
+	  String price = "dfsdfsdf";
+	  String request = "INSERT INTO record (name, price) VALUES ("+ name +", "+ price +")";
+	    		state = conn.createStatement();
+	    		state.executeUpdate("INSERT INTO record (name, price) VALUES ("+ name +", "+ price +")");      
+		      
+	      
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	    }
+		return conn;      
+	  }
+	  
+	
+}

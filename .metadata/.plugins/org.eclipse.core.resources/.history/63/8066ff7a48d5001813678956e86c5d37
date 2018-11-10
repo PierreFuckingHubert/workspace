@@ -1,0 +1,5 @@
+
+public class Record {
+	String name;
+	String price;
+}

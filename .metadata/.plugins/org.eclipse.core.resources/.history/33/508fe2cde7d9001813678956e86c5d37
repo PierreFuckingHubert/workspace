@@ -1,0 +1,23 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String country = "nigeria";
+		String genre = "boogie";
+		
+		String url = "/Felix-Lebarty-Lover-Boy-Bobo/release/2078144";
+		String urls[]  = url.split("/");
+		System.out.println(urls[0]);
+
+		// Remplis la BDD en fonction d'une url
+		//Discogs.getJSON(country, genre);
+		
+		//Ebay.getJSON();
+		//bdd.connection();
+		//Discogs.getJSON();
+		//System.out.println(Html.findHigherPrice(Html.getHtml("https://www.discogs.com/City-Holy-Gang-Horror/release/8118265")));
+		//System.out.println(Html.findHigherPrice(Html.getHtml()));	
+	}
+
+}

@@ -1,0 +1,14 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		bdd.connection();
+		Discogs.getJSON();
+
+		//Ebay.getJSON();
+		//Discogs.getJSON();
+		//System.out.println(Html.findHigherPrice(Html.getHtml("https://www.discogs.com/City-Holy-Gang-Horror/release/8118265")));
+		//System.out.println(Html.findHigherPrice(Html.getHtml()));	
+	}
+
+}
